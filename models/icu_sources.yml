@@ -1,0 +1,12 @@
+sources:
+  - name: icu
+    database:	peerdb_database
+    schema: icu_crm
+    tables:
+      - name: organization
+      - name: organization_tag
+      - name: organization_tag_value
+      - name: identification_code
+ 
+ 
+ 
