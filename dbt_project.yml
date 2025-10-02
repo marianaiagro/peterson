@@ -41,6 +41,12 @@ models:
     staging:
       materialized: view
       +schema: staging
+    intermediate:
+      materialized: table
+      +schema: intermediate
+    modeled:
+      materialized: table
+      +schema: modeled
 
 seeds:
   peterson:

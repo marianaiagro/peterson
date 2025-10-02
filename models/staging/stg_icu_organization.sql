@@ -1,12 +1,41 @@
---table name
---owner
---when was created
---brief description about the table
+/*
+------------------------------------------------------------------------------
+Table Name        : stg_icu__organization
+Owner             : iAgro
+Created On        : 2025-10-01
+Brief Description : Staging view for ICU Organization data.
+                    Brings all records from the source table 'icu.organization'
+                    for downstream transformations.
+------------------------------------------------------------------------------
+*/
 
 WITH source_data AS (
 
     SELECT
-        *
+        client_number
+        ,invoice_format
+        ,legal_name
+        ,legal_number
+        ,name
+        ,tax_number
+        ,type
+        ,website
+        ,id
+        ,status
+        ,deleted
+        ,time_zone_id
+        ,approved
+        ,deleted_at
+        ,deleted_by
+        ,approval_priority
+        ,duplicated
+        ,duplicated_at
+        ,duplicated_by
+        ,approved_at
+        ,approved_by
+        ,number_of_employees
+        ,_peerdb_is_deleted
+        ,_peerdb_synced_at
     FROM {{ source('icu', 'organization') }} AS organization
 
 )
@@ -14,29 +43,3 @@ WITH source_data AS (
 SELECT
     *
 FROM source_data
-
-
---buenas practicas sql/dbt
-
-    --espacios para igualdades
-
-    --coma antes de la seleccion de nuevas columas
-    --(ej: SELECT
-    --      col1
-    --      ,col2
-    --    FROM table;)
-
-    --sentencias sql en mayuscula
-    --columnas o nombres de tablas en minuscula
-
-    --seleccionar palabras completas para nombre de tabla o columnas
-
-    --iniciar las vistas de la carpeta staging con el acronimo 'stg'
-
-    --podriamos incluir un readme en las vitas o tablas 
-
-    --iniciar las vistas de la carpeta intermediate con el acronimo 'int'
-
-    --los archivos de la carpeta modeled no contienen prefijo
-
-    --NO USAR MAYUSCULAS EN ARCHIVOS DE DBT
