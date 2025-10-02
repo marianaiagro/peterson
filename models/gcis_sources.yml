@@ -1,0 +1,7 @@
+sources:
+  - name: gcis
+    database: gcis_raw
+    schema: gcis_api
+    tables:
+      - name: gcis_companies
+      - name: gcis_commodities
