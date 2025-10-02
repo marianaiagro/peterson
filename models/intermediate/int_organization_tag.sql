@@ -20,13 +20,13 @@ tag_values AS (
 )
 
 SELECT
-    tag_list.organization_id,
-    MAX(DECODE(tag_list.name = 'type',       tag_values.tag_value, NULL)) AS organization_type,
-    MAX(DECODE(tag_list.name = 'status',     tag_values.tag_value, NULL)) AS status,
-    MAX(DECODE(tag_list.name = 'system',     tag_values.tag_value, NULL)) AS organization_system,
-    MAX(DECODE(tag_list.name = 'isMigrated', tag_values.tag_value, NULL)) AS brand,
-    MAX(DECODE(tag_list.name = 'founder',    tag_values.tag_value, NULL)) AS founder,
-    MAX(DECODE(tag_list.name = 'holding',    tag_values.tag_value, NULL)) AS holding
+    tag_list.organization_id
+    ,MAX(DECODE(tag_list.name, 'type'      , LOWER(TRIM(tag_values.tag_value)), NULL)) AS organization_type
+    ,MAX(DECODE(tag_list.name, 'status'    , LOWER(TRIM(tag_values.tag_value)), NULL)) AS status
+    ,MAX(DECODE(tag_list.name, 'system'    , LOWER(TRIM(tag_values.tag_value)), NULL)) AS organization_system
+    ,MAX(DECODE(tag_list.name, 'isMigrated', LOWER(TRIM(tag_values.tag_value)), NULL)) AS brand
+    ,MAX(DECODE(tag_list.name, 'founder'   , LOWER(TRIM(tag_values.tag_value)), NULL)) AS founder
+    ,MAX(DECODE(tag_list.name, 'holding'   , LOWER(TRIM(tag_values.tag_value)), NULL)) AS holding
 FROM tag_list
 INNER JOIN tag_values
   ON tag_list.id = tag_values.organization_tag_id
