@@ -7,6 +7,8 @@ sources:
       - name: organization_tag
       - name: organization_tag_value
       - name: identification_code
+      - name: address
+      - name: party
  
  
  
