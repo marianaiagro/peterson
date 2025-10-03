@@ -8,7 +8,7 @@ WITH tag_list AS (
         id
         ,name
         ,organization_id
-    FROM {{ source('icu','organization_tag') }}
+    FROM {{ ref('stg_icu_organization_tag') }}
 ),
 
 tag_values AS (
@@ -16,7 +16,7 @@ tag_values AS (
         id
         ,tag_value
         ,organization_tag_id
-    FROM {{ source('icu','organization_tag_value') }}
+    FROM {{ ref('stg_icu_organization_tag_value') }}
 )
 
 SELECT
