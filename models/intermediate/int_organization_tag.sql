@@ -1,7 +1,3 @@
-{{ config(
-    materialized='table',
-    schema='intermediate'
-) }}
 
 WITH tag_list AS (
     SELECT 
