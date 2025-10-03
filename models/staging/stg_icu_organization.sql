@@ -35,9 +35,33 @@ WITH source_data AS (
         ,approved_by
         ,number_of_employees
         ,_peerdb_is_deleted
-        ,_peerdb_synced_at
+        ,MAX(_peerdb_synced_at)                 AS _peerdb_synced_at
     FROM {{ source('icu', 'organization') }} AS organization
-
+    WHERE _peerdb_is_deleted = FALSE
+    GROUP BY 
+        client_number
+        ,invoice_format
+        ,legal_name
+        ,legal_number
+        ,name
+        ,tax_number
+        ,type
+        ,website
+        ,id
+        ,status
+        ,deleted
+        ,time_zone_id
+        ,approved
+        ,deleted_at
+        ,deleted_by
+        ,approval_priority
+        ,duplicated
+        ,duplicated_at
+        ,duplicated_by
+        ,approved_at
+        ,approved_by
+        ,number_of_employees
+        ,_peerdb_is_deleted
 )
 
 SELECT
