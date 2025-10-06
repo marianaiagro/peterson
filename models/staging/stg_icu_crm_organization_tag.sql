@@ -15,10 +15,13 @@ WITH source_data AS (
         id
         ,name
         ,organization_id
-        ,_peerdb_is_deleted
-        ,_peerdb_synced_at
-    FROM {{ source('icu', 'organization_tag') }} AS organization_tag
-
+        ,MAX(_peerdb_synced_at)                 AS _peerdb_synced_at
+    FROM {{ source('icu_crm', 'organization_tag') }} AS organization_tag
+    WHERE _peerdb_is_deleted = FALSE
+    GROUP BY
+        id
+        ,name
+        ,organization_id
 )
 
 SELECT

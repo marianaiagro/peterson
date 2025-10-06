@@ -1,0 +1,92 @@
+
+WITH source_data AS (
+    SELECT
+        id
+        ,client_id
+        ,po_number
+        ,contact_id
+        ,description
+        ,due_date
+        ,issue_date
+        ,lang_code
+        ,name
+        ,number
+        ,pdf_doc_store_id
+        ,proforma_invoice_number
+        ,proforma_pdf_doc_store_id
+        ,status
+        ,total_price
+        ,configuration_id
+        ,contract_id
+        ,currency_id
+        ,proforma_template_id
+        ,template_id
+        ,is_executed
+        ,is_payed
+        ,payed_date
+        ,is_valid
+        ,total_gross_amount
+        ,total_net_amount
+        ,total_tax_amount
+        ,comment
+        ,type
+        ,parent_id
+        ,debtor_id
+        ,is_proforma_case
+        ,created_at
+        ,created_by
+        ,modified_at
+        ,modified_by
+        ,printed_at
+        ,proforma_printed_at
+        ,service_end_date
+        ,service_start_date
+        ,MAX(_peerdb_synced_at)                 AS _peerdb_synced_at
+    FROM {{ source('icu_pci', 'invoice') }} AS invoice
+    WHERE _peerdb_is_deleted = FALSE
+    GROUP BY
+        id
+        ,client_id
+        ,po_number
+        ,contact_id
+        ,description
+        ,due_date
+        ,issue_date
+        ,lang_code
+        ,name
+        ,number
+        ,pdf_doc_store_id
+        ,proforma_invoice_number
+        ,proforma_pdf_doc_store_id
+        ,status
+        ,total_price
+        ,configuration_id
+        ,contract_id
+        ,currency_id
+        ,proforma_template_id
+        ,template_id
+        ,is_executed
+        ,is_payed
+        ,payed_date
+        ,is_valid
+        ,total_gross_amount
+        ,total_net_amount
+        ,total_tax_amount
+        ,comment
+        ,type
+        ,parent_id
+        ,debtor_id
+        ,is_proforma_case
+        ,created_at
+        ,created_by
+        ,modified_at
+        ,modified_by
+        ,printed_at
+        ,proforma_printed_at
+        ,service_end_date
+        ,service_start_date
+)
+
+SELECT
+    *
+FROM source_data
