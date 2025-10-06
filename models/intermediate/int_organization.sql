@@ -15,6 +15,6 @@ SELECT
     ,int_organization_tag.brand                 AS brand
     ,int_organization_tag.founder               AS founder
     ,int_organization_tag.holding               As holding
-FROM {{ ref('stg_icu_organization') }} AS stg_icu_organization
+FROM {{ ref('stg_icu_crm_organization') }} AS stg_icu_organization
 INNER JOIN {{ ref('int_organization_tag') }} AS int_organization_tag
     ON stg_icu_organization.id = int_organization_tag.organization_id

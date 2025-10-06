@@ -34,9 +34,8 @@ WITH source_data AS (
         ,approved_at
         ,approved_by
         ,number_of_employees
-        ,_peerdb_is_deleted
         ,MAX(_peerdb_synced_at)                 AS _peerdb_synced_at
-    FROM {{ source('icu', 'organization') }} AS organization
+    FROM {{ source('icu_crm', 'organization') }} AS organization
     WHERE _peerdb_is_deleted = FALSE
     GROUP BY 
         client_number

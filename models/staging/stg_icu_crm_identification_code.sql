@@ -17,10 +17,15 @@ WITH source_data AS (
         ,type
         ,party_id
         ,data_matches
-        ,_peerdb_is_deleted
-        ,_peerdb_synced_at
-    FROM {{ source('icu', 'identification_code') }} AS identification_code
-
+        ,MAX(_peerdb_synced_at)                 AS _peerdb_synced_at
+    FROM {{ source('icu_crm', 'identification_code') }} AS identification_code
+    WHERE _peerdb_is_deleted = FALSE
+    GROUP BY
+        id
+        ,code
+        ,type
+        ,party_id
+        ,data_matches 
 )
 
 SELECT

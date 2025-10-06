@@ -1,5 +1,5 @@
 sources:
-  - name: icu
+  - name: icu_crm
     database:	peerdb_database
     schema: icu_crm
     tables:
@@ -9,6 +9,31 @@ sources:
       - name: identification_code
       - name: address
       - name: party
- 
- 
+
+  - name: icu_pci
+    database:	peerdb_database
+    schema: icu_pci
+    tables:
+      - name: contract
+      - name: invoice
+
+  - name: icu_connected
+    database:	peerdb_database
+    schema: icu_connected
+    tables:
+      - name: organization
+      - name: tc
+
+  - name: icu_cert
+    database:	peerdb_database
+    schema: icu_cert
+    tables:
+      - name: certificate
+      - name: organization
+      - name: scope
+      - name: scope_v3
+
+
+  
+  
  
