@@ -1,0 +1,191 @@
+CONTINENT,COUNTRY,CODE
+Asia,Afghanistan,AF
+Europe,Albania,AL
+Africa,Algeria,DZ
+Europe,Andorra,AD
+Africa,Angola,AO
+America,Antigua and Barbuda,AG
+America,Argentina,AR
+Asia,Armenia,AM
+Oceania,Australia,AU
+Europe,Austria,AT
+Asia,Azerbaijan,AZ
+America,Bahamas,BS
+Asia,Bahrain,BH
+Asia,Bangladesh,BD
+America,Barbados,BB
+Europe,Belarus,BY
+Europe,Belgium,BE
+America,Belize,BZ
+Africa,Benin,BJ
+Asia,Bhutan,BT
+America,Bolivia,BO
+Europe,Bosnia and Herzegovina,BA
+Africa,Botswana,BW
+America,Brazil,BR
+Asia,Brunei Darussalam,BN
+Europe,Bulgaria,BG
+Africa,Burkina Faso,BF
+Africa,Burundi,BI
+Asia,Cambodia,KH
+Africa,Cameroon,CM
+America,Canada,CA
+Africa,Central African Republic,CF
+Africa,Chad,TD
+America,Chile,CL
+Asia,China,CN
+America,Colombia,CO
+Africa,Comoros,KM
+Africa,Congo,CG
+America,Costa Rica,CR
+Europe,Croatia,HR
+America,Cuba,CU
+Asia,Cyprus,CY
+Europe,Denmark,DK
+Africa,Djibouti,DJ
+America,Dominica,DM
+America,Dominican Republic,DO
+America,Ecuador,EC
+Africa,Egypt,EG
+America,El Salvador,SV
+Africa,Equatorial Guinea,GQ
+Africa,Eritrea,ER
+Europe,Estonia,EE
+Africa,Ethiopia,ET
+Oceania,Fiji,FJ
+Europe,Finland,FI
+Europe,France,FR
+Africa,Gabon,GA
+Africa,Gambia,GM
+Asia,Georgia,GE
+Europe,Germany,DE
+Africa,Ghana,GH
+Europe,Greece,GR
+America,Grenada,GD
+America,Guatemala,GT
+Africa,Guinea,GN
+Africa,Guinea-Bissau,GW
+America,Guyana,GY
+America,Haiti,HT
+America,Honduras,HN
+Europe,Hungary,HU
+Europe,Iceland,IS
+Asia,India,IN
+Asia,Indonesia,ID
+Asia,Iran,IR
+Asia,Iraq,IQ
+Europe,Ireland,IE
+Asia,Israel,IL
+Europe,Italy,IT
+America,Jamaica,JM
+Asia,Japan,JP
+Asia,Jordan,JO
+Asia,Kazakhstan,KZ
+Africa,Kenya,KE
+Oceania,Kiribati,KI
+Asia,Kuwait,KW
+Asia,Kyrgyzstan,KG
+Europe,Latvia,LV
+Asia,Lebanon,LB
+Africa,Lesotho,LS
+Africa,Liberia,LR
+Europe,Liechtenstein,LI
+Europe,Lithuania,LT
+Europe,Luxembourg,LU
+Africa,Madagascar,MG
+Africa,Malawi,MW
+Asia,Malaysia,MY
+Asia,Maldives,MV
+Africa,Mali,ML
+Europe,Malta,MT
+Oceania,Marshall Islands,MH
+Africa,Mauritania,MR
+Africa,Mauritius,MU
+America,Mexico,MX
+Oceania,Micronesia,FM
+Europe,Moldova,MD
+Europe,Monaco,MC
+Asia,Mongolia,MN
+Europe,Montenegro,ME
+Africa,Morocco,MA
+Africa,Mozambique,MZ
+Asia,Myanmar,MM
+Oceania,Nauru,NR
+Asia,Nepal,NP
+Europe,Netherlands,NL
+Oceania,New Zealand,NZ
+America,Nicaragua,NI
+Africa,Niger,NE
+Africa,Nigeria,NG
+Europe,Norway,NO
+Asia,Oman,OM
+Asia,Pakistan,PK
+Oceania,Palau,PW
+America,Panama,PA
+Oceania,Papua New Guinea,PG
+America,Paraguay,PY
+America,Peru,PE
+Asia,Philippines,PH
+Europe,Poland,PL
+Europe,Portugal,PT
+Asia,Qatar,QA
+Europe,Romania,RO
+Africa,Rwanda,RW
+America,Saint Kitts and Nevis,KN
+America,Saint Lucia,LC
+America,Saint Vincent and the Grenadines,VC
+Oceania,Samoa,WS
+Europe,San Marino,SM
+Africa,Sao Tome and Principe,ST
+Asia,Saudi Arabia,SA
+Africa,Senegal,SN
+Europe,Serbia,RS
+Africa,Seychelles,SC
+Africa,Sierra Leone,SL
+Asia,Singapore,SG
+Europe,Slovakia,SK
+Europe,Slovenia,SI
+Oceania,Solomon Islands,SB
+Africa,Somalia,SO
+Africa,South Africa,ZA
+Africa,South Sudan,SS
+Europe,Spain,ES
+Asia,Sri Lanka,LK
+Africa,Sudan,SD
+America,Suriname,SR
+Europe,Sweden,SE
+Europe,Switzerland,CH
+Asia,Tajikistan,TJ
+Africa,Tanzania,TZ
+Asia,Thailand,TH
+Asia,Timor-Leste,TL
+Africa,Togo,TG
+Oceania,Tonga,TO
+America,Trinidad and Tobago,TT
+Africa,Tunisia,TN
+Asia,Turkey,TR
+Asia,Turkmenistan,TM
+Oceania,Tuvalu,TV
+Africa,Uganda,UG
+Europe,Ukraine,UA
+Asia,United Arab Emirates,AE
+Europe,United Kingdom,GB
+America,United States,US
+America,Uruguay,UY
+Asia,Uzbekistan,UZ
+Oceania,Vanuatu,VU
+America,Venezuela,VE
+Asia,Vietnam,VN
+Asia,Yemen,YE
+Africa,Zambia,ZM
+Africa,Zimbabwe,ZW
+Africa,Cabo Verde,CV
+Europe,Czechia,CZ
+Africa,Democratic Republic of the Congo,CD
+Africa,Eswatini,SZ
+Asia,Laos,LA
+Africa,Libya,LY
+Africa,Namibia,NA
+Europe,North Macedonia,MK
+Asia,Russia,RU
+Asia,Syria,SY
