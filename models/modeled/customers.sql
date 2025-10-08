@@ -16,4 +16,5 @@ SELECT
     ,founder
     ,holding
 FROM {{ ref('int_organization') }}
-WHERE organization_type = 'customer'
+WHERE organization_type = 'customer' 
+    OR (organization_type = 'unit' AND organization_system = 'cert' AND status = 'customer')
