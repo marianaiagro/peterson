@@ -13,7 +13,7 @@ WITH source_data AS (
         WHEN raw:"global" IS NULL OR UPPER(TRIM(raw:"global"::STRING)) = 'NULL' THEN NULL
         WHEN UPPER(raw:"global"::STRING) IN ('YES','Y','TRUE') THEN 1
         ELSE 0
-      END                                                                                                                          AS is_global
+      END                                                                                                                           AS is_global
     FROM {{ source('gcis','gcis_commodities') }}
 )
 
