@@ -27,5 +27,5 @@ SELECT
             )
         ) AS icu_literal_name
 FROM {{ ref('stg_icu_crm_organization') }} AS stg_icu_organization
-INNER JOIN {{ ref('int_organization_tag') }} AS int_organization_tag
+INNER JOIN {{ ref('int_icu_organization_tag') }} AS int_organization_tag
     ON stg_icu_organization.id = int_organization_tag.organization_id
