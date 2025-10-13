@@ -1,0 +1,9 @@
+sources:
+  - name: gcms
+    database: gcms_raw
+    schema: gcms_samples
+    tables:
+      - name: gcms_companies_latam
+      - name: gcms_companies_brazil
+      - name: gcms_commodities_emea_apac
+      - name: gcms_commodities_brazil
