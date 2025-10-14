@@ -7,6 +7,7 @@ SELECT
     , parent_company
     , complement_type
     , complement_value
+    , country                       AS country_en
     , country_code
     , LOWER(
           TRANSLATE(

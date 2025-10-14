@@ -21,7 +21,8 @@ WITH icu AS (
         ,NULL                           AS parent_company
         ,icu_literal_name               AS literal_name
         ,word_tags
-        ,NULL                           AS country_code
+        ,country_en
+        ,country_code
     FROM {{ ref('int_icu_organization') }}
     WHERE organization_type = 'customer' 
        OR (organization_type = 'unit' AND organization_system = 'cert' AND status = 'customer')
@@ -50,13 +51,14 @@ gcis AS (
         ,NULL                           AS parent_company
         ,gcis_literal_name              AS literal_name
         ,word_tags
+        ,NULL                           AS country_en
         ,NULL                           AS country_code
     FROM {{ ref('int_gcis_organization') }}
 ),
 
 gcms AS (
     SELECT
-         'gcms'                         AS source_system
+        'gcms'                         AS source_system
         ,client_number          
         ,legal_name         
         ,NULL                           AS legal_number
@@ -77,6 +79,7 @@ gcms AS (
         ,parent_company         
         ,gcms_literal_name              AS literal_name
         ,word_tags
+        ,country_en
         ,country_code
     FROM {{ ref('int_gcms_organization') }}
 )
