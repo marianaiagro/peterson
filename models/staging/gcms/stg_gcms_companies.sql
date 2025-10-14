@@ -69,7 +69,7 @@ seed_country AS (
 
 final AS (
     SELECT
-          source_data.id
+        CAST(source_data.id AS VARCHAR)                          AS client_number
         , source_data.person_type
         , source_data.economic_group
         , source_data.name
