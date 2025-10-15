@@ -25,6 +25,7 @@ WITH source_data AS (
         , email
         , role
         , authorized_service
+        , upper('latam')            AS source_companies 
     FROM {{ source('gcms', 'gcms_companies_latam') }}
 
     UNION ALL
@@ -54,6 +55,7 @@ WITH source_data AS (
         , email
         , role
         , authorized_service
+        , upper('brazil')            AS source_companies 
     FROM {{ source('gcms', 'gcms_companies_brazil') }}
 
 ),
@@ -94,7 +96,7 @@ final AS (
         , source_data.email
         , source_data.role
         , source_data.authorized_service
-
+        , source_data.source_companies 
     FROM source_data
     LEFT JOIN seed_country
         ON LOWER(TRIM(source_data.country)) = LOWER(TRIM(seed_country.country_en))
