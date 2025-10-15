@@ -16,6 +16,7 @@ WITH source_data AS (
         , CAST(product_variety_active AS VARCHAR)         AS product_variety_active
         , institutions_associated_with_the_product_variety
         , packing_forms_associated_with_the_product
+        , upper('emea_apac')                              AS source_commodity  
     FROM {{ source('gcms', 'gcms_commodities_emea_apac') }}
 
     UNION ALL
@@ -35,6 +36,7 @@ WITH source_data AS (
         , CAST(product_variety_active AS VARCHAR)         AS product_variety_active
         , institutions_associated_with_the_product_variety
         , packing_forms_associated_with_the_product
+        , upper('brazil')                                 AS source_commodity
     FROM {{ source('gcms', 'gcms_commodities_brazil') }}
 )
 
@@ -53,4 +55,5 @@ SELECT
     , product_variety_active
     , institutions_associated_with_the_product_variety
     , packing_forms_associated_with_the_product
+    , source_commodity
 FROM source_data
