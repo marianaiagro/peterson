@@ -25,7 +25,7 @@ WITH icu AS (
         ,country_code
     FROM {{ ref('int_icu_organization') }}
     WHERE organization_type = 'customer' 
-       OR (organization_type = 'unit' AND organization_system = 'cert' AND status = 'customer')
+       OR (organization_type = 'unit' AND organization_system = 'cert') -- AND status = 'customer')
 ),
 
 gcis AS (
