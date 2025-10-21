@@ -1,0 +1,6 @@
+sources:
+  - name: adhoc
+    database: adhoc_raw
+    schema: public
+    tables:
+      - name: country_zip_code
