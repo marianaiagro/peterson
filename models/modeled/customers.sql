@@ -23,12 +23,13 @@ WITH icu AS (
         ,word_tags
         ,country_en
         ,country_code
+        ,icu_tax_number_literal         AS literal_tax_number
     FROM {{ ref('int_icu_organization') }}
     WHERE organization_type = 'customer' 
        OR (organization_type = 'unit' AND organization_system = 'cert') -- AND status = 'customer')
-),
+)
 
-gcis AS (
+, gcis AS (
     SELECT 
          'gcis'                         AS source_system
         ,client_number
@@ -51,14 +52,15 @@ gcis AS (
         ,NULL                           AS parent_company
         ,gcis_literal_name              AS literal_name
         ,word_tags
-        ,NULL                           AS country_en
-        ,NULL                           AS country_code
+        ,country_en
+        ,country_code
+        ,gcis_tax_number_literal        AS literal_tax_number
     FROM {{ ref('int_gcis_organization') }}
-),
+)
 
-gcms AS (
+, gcms AS (
     SELECT
-        'gcms'                         AS source_system
+         'gcms'                         AS source_system
         ,client_number          
         ,legal_name         
         ,NULL                           AS legal_number
@@ -81,6 +83,7 @@ gcms AS (
         ,word_tags
         ,country_en
         ,country_code
+        ,NULL                           AS literal_tax_number
     FROM {{ ref('int_gcms_organization') }}
 )
 
