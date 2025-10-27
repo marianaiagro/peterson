@@ -1,0 +1,7 @@
+sources:
+  - name: tally
+    database: peerdb_database
+    schema: tally_test
+    tables:
+      - name: get_expensesdata
+      - name: get_voucherdata

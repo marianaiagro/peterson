@@ -1,0 +1,23 @@
+SELECT
+    id
+    ,remote_id
+    ,company_name
+    ,voucher_type
+    ,voucher_number
+    ,voucher_date
+    ,reference_number
+    ,voucher_total_amount
+    ,customer_name
+    ,address_line_1
+    ,address_line_2
+    ,address_line_3
+    ,address_line_4
+    ,address_line_5
+    ,narration
+    ,sr_no
+    ,type
+    ,ledger_name
+    ,per
+    ,amount
+    ,id_
+FROM {{ source('tally', 'get_voucherdata') }} AS voucher_data
