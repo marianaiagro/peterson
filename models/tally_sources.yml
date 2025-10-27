@@ -5,3 +5,4 @@ sources:
     tables:
       - name: get_expensesdata
       - name: get_voucherdata
+      - name: getvouchercostcenterdata
