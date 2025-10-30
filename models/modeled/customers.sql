@@ -87,8 +87,41 @@ WITH icu AS (
     FROM {{ ref('int_gcms_organization') }}
 )
 
+
+
+, tally AS (
+    SELECT
+          'tally'                        AS source_system
+        , NULL                           AS client_number
+        , legal_name
+        , NULL                           AS legal_number
+        , NULL                           AS name
+        , NULL                           AS tax_number
+        , NULL                           AS website
+        , NULL                           AS organization_id
+        , NULL                           AS approved
+        , NULL                           AS approved_at
+        , NULL                           AS organization_type
+        , NULL                           AS status
+        , NULL                           AS organization_system
+        , NULL                           AS brand
+        , NULL                           AS founder
+        , NULL                           AS holding
+        , NULL                           AS company_group
+        , NULL                           AS economic_group
+        , NULL                           AS parent_company
+        , tally_literal_name             AS literal_name
+        , word_tags
+        , country_en
+        , country_code
+        , NULL                           AS literal_tax_number
+    FROM {{ ref('int_tally_organization') }}
+)
+
 SELECT * FROM icu
 UNION ALL
 SELECT * FROM gcis
 UNION ALL
 SELECT * FROM gcms
+UNION ALL
+SELECT * FROM tally

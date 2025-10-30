@@ -1,47 +1,50 @@
-WITH expenses AS (
-    SELECT
-          costcenter_name
-        , remote_id
-        , comp_name
-        , comp_code
-        , party_name
+WITH expenses_customer_names AS (
+    SELECT DISTINCT
+          NULLIF(TRIM(party_name), '') AS party_name
     FROM {{ ref('stg_tally_expenses_data') }}
+    WHERE party_name IS NOT NULL
 )
-, voucher AS (
-    SELECT
-          remote_id
-        , company_name
-        , reference_number
-        , customer_name
+
+, voucher_costcenter_customer_name AS (
+    SELECT DISTINCT
+          NULLIF(TRIM(customer_name), '') AS customer_name
     FROM {{ ref('stg_tally_voucher_data') }}
-)
-, costcenter AS (
-    SELECT
-          remote_id
-        , company_name
-        , reference_number
-        , customer_name
+    WHERE customer_name IS NOT NULL
+
+    UNION
+
+    SELECT DISTINCT
+          NULLIF(TRIM(customer_name), '') AS customer_name
     FROM {{ ref('stg_tally_voucher_costcenter_data') }}
+    WHERE customer_name IS NOT NULL
 )
+
 , source_data AS (
-    SELECT
-          COALESCE(expenses.remote_id, voucher.remote_id, costcenter.remote_id) AS remote_id
-        , COALESCE(voucher.company_name, costcenter.company_name, expenses.comp_name) AS company_name
-        , COALESCE(voucher.customer_name, costcenter.customer_name, expenses.party_name) AS customer_name
-        , expenses.comp_code
-        , expenses.costcenter_name
-    FROM expenses
-    FULL OUTER JOIN voucher
-        ON expenses.remote_id = voucher.remote_id
-    FULL OUTER JOIN costcenter
-        ON COALESCE(expenses.remote_id, voucher.remote_id) = costcenter.remote_id
+    SELECT DISTINCT
+          party_name
+    FROM expenses_customer_names
+    INNER JOIN voucher_costcenter_customer_name
+        ON LOWER(expenses_customer_names.party_name) = LOWER(voucher_costcenter_customer_name.customer_name)
 )
-SELECT
-      source_data.remote_id                                AS client_number
-    , source_data.customer_name                            AS legal_name
-    , source_data.company_name
-    , source_data.comp_code
-    , source_data.costcenter_name
-    , {{ literal_name("source_data.company_name") }}       AS tally_literal_name
-    , {{ word_tags("source_data.company_name") }}          AS word_tags
+
+, address_data AS (
+    SELECT DISTINCT
+          party_name
+        , address_full_original
+        , address_full_word_tags
+        , country_code
+        , country_en
+    FROM {{ ref('int_tally_address') }}
+)
+
+SELECT DISTINCT
+      source_data.party_name                          AS legal_name
+    , {{ literal_name("source_data.party_name") }}    AS tally_literal_name
+    , {{ word_tags("source_data.party_name") }}       AS word_tags
+    , address_data.address_full_original
+    , address_data.address_full_word_tags
+    , address_data.country_code
+    , address_data.country_en
 FROM source_data
+LEFT JOIN address_data
+    ON LOWER(TRIM(source_data.party_name)) = LOWER(TRIM(address_data.party_name))
