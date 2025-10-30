@@ -1,24 +1,24 @@
 SELECT
-    C1   AS id
-    ,C2  AS remote_id
-    ,C3  AS company_name
-    ,C4  AS voucher_type
-    ,C5  AS voucher_number
-    ,C6  AS voucher_date
-    ,C7  AS reference_number
-    ,C8  AS voucher_total_amount
-    ,C9  AS customer_name
-    ,C10 AS address_line_1
-    ,C11 AS address_line_2
-    ,C12 AS address_line_3
-    ,C13 AS address_line_4
-    ,C14 AS address_line_5
-    ,C15 AS narration
-    ,C16 AS ledger_name
-    ,C17 AS costcenter_name
-    ,C18 AS cost_category
-    ,C19 AS costcenter_amount
-    ,C20 AS id_
+      NULLIF(TRIM(REGEXP_REPLACE(C1,  '\\s+', '')), '')  AS id
+    , NULLIF(TRIM(REGEXP_REPLACE(C2,  '\\s+', '')), '')  AS remote_id
+    , NULLIF(TRIM(REGEXP_REPLACE(C3,  '\\s+', '')), '')  AS company_name
+    , NULLIF(TRIM(REGEXP_REPLACE(C4,  '\\s+', '')), '')  AS voucher_type
+    , NULLIF(TRIM(REGEXP_REPLACE(C5,  '\\s+', '')), '')  AS voucher_number
+    , NULLIF(TRIM(REGEXP_REPLACE(C6,  '\\s+', '')), '')  AS voucher_date
+    , NULLIF(TRIM(REGEXP_REPLACE(C7,  '\\s+', '')), '')  AS reference_number
+    , NULLIF(TRIM(REGEXP_REPLACE(C8,  '\\s+', '')), '')  AS voucher_total_amount
+    , NULLIF(TRIM(REGEXP_REPLACE(C9,  '\\s+', '')), '')  AS customer_name
+    , NULLIF(TRIM(REGEXP_REPLACE(C10, '\\s+', '')), '')  AS address_line_1
+    , NULLIF(TRIM(REGEXP_REPLACE(C11, '\\s+', '')), '')  AS address_line_2
+    , NULLIF(TRIM(REGEXP_REPLACE(C12, '\\s+', '')), '')  AS address_line_3
+    , NULLIF(TRIM(REGEXP_REPLACE(C13, '\\s+', '')), '')  AS address_line_4
+    , NULLIF(TRIM(REGEXP_REPLACE(C14, '\\s+', '')), '')  AS address_line_5
+    , NULLIF(TRIM(REGEXP_REPLACE(C15, '\\s+', '')), '')  AS narration
+    , NULLIF(TRIM(REGEXP_REPLACE(C16, '\\s+', '')), '')  AS ledger_name
+    , NULLIF(TRIM(REGEXP_REPLACE(C17, '\\s+', '')), '')  AS costcenter_name
+    , NULLIF(TRIM(REGEXP_REPLACE(C18, '\\s+', '')), '')  AS cost_category
+    , NULLIF(TRIM(REGEXP_REPLACE(C19, '\\s+', '')), '')  AS costcenter_amount
+    , NULLIF(TRIM(REGEXP_REPLACE(C20, '\\s+', '')), '')  AS id_
 FROM {{ source('tally', 'getvouchercostcenterdata') }} AS voucher_costcenter_data
 WHERE 
     lower(C1) <> 'id'
