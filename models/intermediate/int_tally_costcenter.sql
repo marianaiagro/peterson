@@ -17,6 +17,7 @@ WITH stg_costcenter AS (
         , {{ literal_name("cost_category") }} AS literal_cost_category
     FROM {{ ref('tally_group_services') }}
 )
+
 , final AS (
     SELECT
         stg_costcenter_data.ledger_name
