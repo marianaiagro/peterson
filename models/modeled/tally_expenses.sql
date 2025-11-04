@@ -49,4 +49,3 @@ LEFT JOIN costcenter
     ON expenses.literal_ledger_name = costcenter.literal_ledger_name
  AND expenses.literal_costcenter_name = costcenter.literal_costcenter_name
  AND expenses.literal_cost_category = costcenter.literal_cost_category
-WHERE expenses.voucher_id = 1910

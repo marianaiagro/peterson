@@ -70,4 +70,3 @@ INNER JOIN voucher_data
  AND voucher_data.amount = ABS(voucher_costcenter_data.costcenter_amount)
  AND voucher_data.voucher_total_amount = expenses_data.total_amount
 WHERE voucher_costcenter_data.customer_name IS NOT NULL
-  AND voucher_costcenter_data.voucher_id = 1910
