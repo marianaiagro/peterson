@@ -4,7 +4,7 @@ SELECT
     , NULLIF(TRIM(REGEXP_REPLACE(C3,  '\\s+', '')), '')  AS company_name
     , NULLIF(TRIM(REGEXP_REPLACE(C4,  '\\s+', '')), '')  AS voucher_type
     , NULLIF(TRIM(REGEXP_REPLACE(C5,  '\\s+', '')), '')  AS voucher_number
-    , NULLIF(TRIM(REGEXP_REPLACE(C6,  '\\s+', '')), '')  AS voucher_date
+    , TO_DATE(TO_TIMESTAMP(C6 / 1000))                   AS voucher_date
     , NULLIF(TRIM(REGEXP_REPLACE(C7,  '\\s+', '')), '')  AS reference_number
     , NULLIF(TRIM(REGEXP_REPLACE(C8,  '\\s+', '')), '')  AS voucher_total_amount
     , NULLIF(TRIM(REGEXP_REPLACE(C9,  '\\s+', '')), '')  AS customer_name
