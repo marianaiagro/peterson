@@ -1,6 +1,6 @@
 SELECT
-      id
-    , trans_id
+      id                                                               AS expense_id
+    , trans_id                                                         AS voucher_id
     , NULLIF(TRIM(REGEXP_REPLACE(ledger_name, '\\s+', '')), '')        AS ledger_name
     , NULLIF(TRIM(REGEXP_REPLACE(costcenter_name, '\\s+', '')), '')    AS costcenter_name
     , costcenter_amount
@@ -10,7 +10,7 @@ SELECT
     , NULLIF(TRIM(REGEXP_REPLACE(comp_code, '\\s+', '')), '')          AS comp_code
     , NULLIF(TRIM(REGEXP_REPLACE(vch_no, '\\s+', '')), '')             AS vch_no
     , NULLIF(TRIM(REGEXP_REPLACE(ref_no, '\\s+', '')), '')             AS ref_no
-    , vch_date
+    , TO_DATE(TO_TIMESTAMP(vch_date / 1000))                           AS voucher_date
     , NULLIF(TRIM(REGEXP_REPLACE(party_name, '\\s+', '')), '')         AS party_name
     , total_amount
     , NULLIF(TRIM(REGEXP_REPLACE(consignee, '\\s+', '')), '')          AS consignee

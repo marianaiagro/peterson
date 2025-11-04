@@ -1,10 +1,10 @@
 SELECT
-      id
+      id                                                                AS voucher_id
     , remote_id
     , NULLIF(TRIM(REGEXP_REPLACE(company_name, '\\s+', '')), '')        AS company_name
     , NULLIF(TRIM(REGEXP_REPLACE(voucher_type, '\\s+', '')), '')        AS voucher_type
     , NULLIF(TRIM(REGEXP_REPLACE(voucher_number, '\\s+', '')), '')      AS voucher_number
-    , voucher_date
+    , TO_DATE(TO_TIMESTAMP(voucher_date / 1000))                        AS voucher_date
     , NULLIF(TRIM(REGEXP_REPLACE(reference_number, '\\s+', '')), '')    AS reference_number
     , voucher_total_amount
     , NULLIF(TRIM(REGEXP_REPLACE(customer_name, '\\s+', '')), '')       AS customer_name

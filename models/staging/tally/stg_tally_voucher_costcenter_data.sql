@@ -1,5 +1,5 @@
 SELECT
-      NULLIF(TRIM(REGEXP_REPLACE(C1,  '\\s+', '')), '')  AS id
+      NULLIF(TRIM(REGEXP_REPLACE(C1,  '\\s+', '')), '')  AS voucher_id
     , NULLIF(TRIM(REGEXP_REPLACE(C2,  '\\s+', '')), '')  AS remote_id
     , NULLIF(TRIM(REGEXP_REPLACE(C3,  '\\s+', '')), '')  AS company_name
     , NULLIF(TRIM(REGEXP_REPLACE(C4,  '\\s+', '')), '')  AS voucher_type
