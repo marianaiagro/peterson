@@ -12,6 +12,7 @@ WITH expenses AS (
         , costcenter_amount
         , voucher_amount
         , voucher_total_amount
+        , literal_customer_name
         , literal_ledger_name
         , literal_costcenter_name
         , literal_cost_category
@@ -44,6 +45,7 @@ SELECT DISTINCT
     , expenses.voucher_amount
     , expenses.costcenter_amount
     , expenses.voucher_total_amount
+    , expenses.literal_customer_name
 FROM expenses
 LEFT JOIN costcenter
     ON expenses.literal_ledger_name = costcenter.literal_ledger_name
