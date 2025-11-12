@@ -118,10 +118,10 @@ WITH icu AS (
     FROM {{ ref('int_tally_organization') }}
 )
 
-SELECT * FROM icu
+SELECT *, current_date as today FROM icu
 UNION ALL
-SELECT * FROM gcis
+SELECT *, current_date as today FROM gcis
 UNION ALL
-SELECT * FROM gcms
+SELECT *, current_date as today FROM gcms
 UNION ALL
-SELECT * FROM tally
+SELECT *, current_date as today FROM tally
