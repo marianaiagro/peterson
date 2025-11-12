@@ -9,6 +9,7 @@ WITH voucher_costcenter_data AS (
         , ledger_name
         , costcenter_amount
         , cost_category
+        , {{ literal_name("customer_name") }}      AS literal_customer_name
         , {{ literal_name("ledger_name") }}      AS literal_ledger_name
         , {{ literal_name("costcenter_name") }}  AS literal_costcenter_name
         , {{ literal_name("cost_category") }}    AS literal_cost_category
@@ -54,6 +55,7 @@ SELECT
     , voucher_data.amount                         AS voucher_amount
     , voucher_costcenter_data.costcenter_amount   AS costcenter_amount
     , voucher_data.voucher_total_amount           AS voucher_total_amount
+    , voucher_costcenter_data.literal_customer_name AS literal_customer_name
     , voucher_costcenter_data.literal_ledger_name AS literal_ledger_name
     , voucher_costcenter_data.literal_costcenter_name AS literal_costcenter_name
     , voucher_costcenter_data.literal_cost_category   AS literal_cost_category
